@@ -1,0 +1,9 @@
+# MuJoCo bindings must be installed separately: `pip install mujoco` or follow the official MuJoCo guide
+numpy>=1.21.0
+matplotlib>=3.5.0
+mujoco>=2.3.0
+cvxpy>=1.2.0
+scipy>=1.7.0
+sympy>=1.9
+gymnasium>=0.28.0
+torch>=2.0.0 
