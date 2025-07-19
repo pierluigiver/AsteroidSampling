@@ -60,7 +60,7 @@ sim_time = 0.0
 duration = 5.0  # seconds
 n_steps = int(duration / model.opt.timestep)
 
-# --- State machine variables ---
+# State machine variables
 phase = 'descent'
 contact_start_time = None
 
@@ -70,8 +70,8 @@ tau_d = 200
 eta = 0.1
 alpha = 0.001
 n_window = 1  # Number of samples for identification
-p = 5 # Number of outputs (e.g., velocities, forces)
-m = 2 # Number of inputs (e.g., torques)
+p = 5 # Number of outputs 
+m = 2 # Number of inputs 
 
 # MPC parameters
 l = 50
@@ -83,6 +83,7 @@ u_max = 100
 u_min = -100
 U_max = np.kron(np.ones((l*m,1)), u_max)
 U_min = np.kron(np.ones((l*m,1)), u_min)
+
 # Control rate limits
 du_max = 10
 du_min = -10
@@ -125,7 +126,7 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
         if phase == 'descent':
             tau = np.zeros(2)  # No control torques during descent
             data.ctrl[:] = tau
-            e = -Fd_z  # Error is full desired force when not in contact
+            e = -Fd_z  
             if in_contact:
                 phase = 'contact'
                 contact_start_time = sim_time
@@ -181,6 +182,7 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
 
         viewer.sync()
         mujoco.mj_step(model, data)
+        
         # Proper real-time control: Calculate elapsed time for this step
         step_elapsed_time = time.time() - step_start_time
         time_until_next_step = model.opt.timestep - step_elapsed_time
