@@ -1,9 +1,5 @@
 <mujoco model="2DspacecraftEE">
   <option gravity="0 0 0"/>
-  
-  <!-- Contact parameters for terrain coefficients: ks = 2e5 N/m, cs = 5 N·s/m -->
-  <!-- solref = [timeconst, dampratio] where timeconst = sqrt(mass/ks), dampratio = cs/(2*sqrt(mass*ks)) -->
-  <!-- For mass = 1kg: timeconst = sqrt(1/2e5) = 0.00224, dampratio = 5/(2*sqrt(2e5)) = 0.0056 -->
  
   <contact>
     <pair geom1="link1_geom" geom2="surface" solref="0.02 1" friction="1 0.5 0.5"/>
